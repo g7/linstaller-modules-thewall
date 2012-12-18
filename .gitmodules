@@ -1,0 +1,3 @@
+[submodule "linstaller"]
+	path = linstaller
+	url = git://github.com/semplice/linstaller.git
