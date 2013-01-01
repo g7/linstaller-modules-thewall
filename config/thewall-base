@@ -1,0 +1,29 @@
+[linstaller]
+distribution = thewall base config
+modules = thewall bootstrap
+special =
+
+[frontend:cli]
+follow = True
+
+[supermodule:bootstrap]
+modules = thewall.bootstrap.debootstrap.inst
+special = 
+
+[supermodule:chroot]
+modules = thewall.chroot.prepare.inst thewall.chroot.kernel.inst thewall.chroot.preseed.inst thewall.chroot.packages.inst thewall.chroot.live_packages.inst
+special = thewall.chroot.prepare.inst
+
+[supermodule:binary]
+modules = thewall.binary.fstarget.squashfs thewall.binary.imagetarget.iso
+special =
+
+[module:thewall]
+arch = i386
+insecure = True
+restore_security = True
+
+[module:thewall.bootstrap]
+distro = sid
+mirror = http://debian.fastweb.it/debian/
+areas = main contrib non-free
